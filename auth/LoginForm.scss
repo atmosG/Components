@@ -1,0 +1,123 @@
+@import '../../lib/styles/palette.scss';
+@import '../../lib/styles/responsive.scss';
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: 0.1rem solid $color-gray-300;
+
+  &:focus {
+    border-bottom: 0.2rem solid $color-gray-600;
+  }
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-inner {
+  width: 30rem;
+  height: 30rem;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  border: 0.2rem solid $color-gray-300;
+
+  form {
+    input {
+      display: block;
+      width: 100%;
+      height: 2.25rem;
+      margin-top: 0.75rem;
+    }
+
+    input[type='submit'] {
+      height: 2.75rem;
+      margin-top: 0rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    input[type='checkbox'] {
+      display: none;
+
+      & + label {
+        display: inline-block;
+        padding-top: 1.25rem;
+        padding-bottom: 2.25rem;
+        padding-left: 1.75rem;
+        position: relative;
+      }
+
+      & + label::before {
+        content: '✔';
+        position: absolute;
+        left: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+        text-align: center;
+        border: 0.05rem solid $color-gray-600;
+        color: $color-gray-600;
+        border-radius: 100%;
+        cursor: pointer;
+      }
+
+      &:checked + label::before {
+        content: '✔';
+        color: #fff;
+        background-color: $color-gray-600;
+      }
+    }
+  }
+
+  button {
+    margin-top: 0.25rem;
+    height: 2.75rem;
+    border-radius: 0.25rem;
+
+    // 왜 3번째지
+    &:nth-child(3) {
+      background-color: #fee500;
+    }
+    &:nth-child(4) {
+      background-color: $color-green-600;
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+@include mobile {
+  .wrapper  {
+    align-items: unset;
+  }
+
+  .login-inner {
+    min-width: 20rem;
+    border: none;
+    height: 100%;
+  }  
+}
